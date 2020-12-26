@@ -102,7 +102,19 @@ Generalmente el trabajar con algunos lenguajes o con trabajos escritos en LaTex 
 ```
 
 ## Trabajando colaborativamente por ramas (Branch)
-
+Generalmente muchas veces nos veremos envueltos en trabajos donde cada persona trabaja con ciertas funcionalidades o archivos distintos, en los que buscaremos que al final esto integre en una aplicación o servicio que permita trabajar en distintas cosas, por ello se trabajara con distintas ramas las cuales permitiran trabajar sin problema alguno:
+```bash
+  # Creando un branch
+  git branch nombre_del_branch
+  # Borrando un branch
+  git branch -d nombre_del_branch
+  # Cambiando entre branch
+  git checkout nombre_del_branch
+  # Uniendo cualquier branch con la branch master
+  git checkout master
+  git merge nombre_del_branch
+```
+Finalmente para hacer un _merge_ hay que asegurarse que los archivos que estamos trabajando no son tocados por algún otro colaborador, sino podría generar algún problema a la hora de unir o fusionar nuestro trabajo.
 ## Añadiendo nuestro trabajo a Github
 Finalmente para los casos en el que ya hemos trabajo y queremos trabajar colaborativamente podemos realizar un _push_ el cual nos permitirá resguardar nuestro avance en la plataforma de Github de modo en que nuestro equipo de trabajo puede trabajar sin ningún problema, por ello solo es necesario escribir:
 ```bash
@@ -111,3 +123,6 @@ Finalmente para los casos en el que ya hemos trabajo y queremos trabajar colabor
   # Para el caso en que se realice el push por primera vez
   git push --set-upstream origin master
 ```
+
+## Conclusiones
+Si bien hay muchos más comandos los cuales nos ayudan a trabajar con Git y Github el poder realizar varias otras tareas ya dependerá de cuanta documentación o que otras funcionalidades desees aprender, mientras que por otro lado el saber trabajar con ramas de trabajo y el como fusionarlas es de las taras más difíciles que las personas no entienden, entonces a este paso ya vas a la mitad o por encima de la mitad de la curva de aprendizaje de _git_, por otro lado en los _status_ podremos encontrar el como añadir de forma automática todos los archivos o en su defecto como quitar un archivo especifico del registro de nuestro commit.
