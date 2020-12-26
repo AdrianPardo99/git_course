@@ -31,6 +31,24 @@ Para este caso solo nos bastara escribir:
   # O
   sudo yum install git -y
 ```
+## Configurando git para conectarse con alguna plataforma como Github
+Para antes de comenzar y en el supuesto de que exista una cuenta en esta plataforma o por el hecho de desear personalizar todos nuestros registros escribiremos lo siguiente en nuestro terminal:
+```bash
+  git config --global user.name "Nombre Apellido(s)"
+  git config --global user.email "email@mail.com"
+```
+Con esto podremos estar seguros de que nuestro equipo tiene al menos nuestro nombre o alias con el que trabajamos en el repositorio de la computadora local.
+
+## Configurando Github para conexión sin credenciales (vía ssh)
+SSH es una aplicación ya sea de tipo cliente o servidor la cual nos permite conectarnos y nos permite realizar tareas push en el repositorio de forma sencilla y rápida en la cual solo nos preocuparemos por trabajar.
+
+Para esto debemos tener instalado la aplicación de ssh y con ello ademas de lo ya previsto generaremos nuestro par de llaves de ssh (privada y publica):
+```bash
+  ssh-keygen
+```
+En el cual nos desplegara algunos parámetros con los que podemos trabajar o simplemente dar enter por default para generar nuestras llaves.
+
+Finalmente para añadirlas a nuestro perfil de Github solo haremos uso de nuestra llave publica, que generalmente esta nombrada como _id_rsa.pub_ y la añadiremos a [Github](https://github.com/settings/keys) en donde le daremos simplemente nueva llave ssh y copiaremos el contenido de nuestra llave publica, resguardada con un nombre particular para poder realizar nuestros registros del repositorio local al repositorio de Github
 
 ## Iniciando un repositorio de trabajo de versiones
 Para poder trabajar con esto solo bastara con estar en la carpeta donde iniciaremos todo nuestro proyecto de trabajo, ya sea con la documentación o nuestra tesis, o con nuestra aplicación de trabajo, con ello escribiremos lo siguiente:
@@ -54,3 +72,42 @@ Una vez que realizan la operación _git add_ de todos los archivos o del archivo
   git commit -m "Mensaje de descripción del trabajo realizado....."
 ```
 ## Revisión de los registros realizados en el repositorio local
+Finalmente para ver los registros hechos en el repositorio simplemente escribiremos lo siguiente, lo cual nos despliega información importante como el hash del commit realizado, la posición en la que nos encontramos por si estamos viajando entre registros commit o por si estamos en alguna rama de trabajo, la cual sera explicada más adelante, el Autor del commit con su información, la fecha en que se realizo el commit y el mensaje descriptivo del commit, para obtenerlo:
+```bash
+  git log
+```
+## Verificando que archivos hemos modificado eliminado
+Si bien en algunos entornos de desarrollo como lo son Atom, Sublime nos permiten ver los trabajos que hemos modificado mediante su misma interfaz en la línea de escritura o en el cambio de colores en nuestro coloreado de carpetas, podemos ver nuestro trabajo aun no registrado con la siguiente línea:
+```bash
+  git status
+```
+Para este caso podremos ver que archivos hemos módificado, creado, eliminado y que no los hemos registrado o añadido al repositorio con _git add_ por ello git es de suma ayuda ya que nos permite ver cuanto hemos logrado avanzar y trabajar.
+
+## Conectando un repositorio local con un repositorio vacío de Github
+Cuando creemos repositorios sin ninguna información al respecto generalmente necesitaremos conectar nuestro servidor local con nuestro servidor de Github el cual se encuentra vacío y es ahí donde subiremos todo nuestro trabajo y avance, con ello escribiremos:
+```bash
+  git remote add origin git@github.com:username/project_repository
+```
+
+## Creando un archivo que ignore extensiones de archivos o archivos que puedan no ser necesarios para nuestro proyecto
+Generalmente el trabajar con algunos lenguajes o con trabajos escritos en LaTex estos nos generan archivos que muchas veces no son necesarios para que alguien más los trabaje o modifique, por ello git incluye un archivo muy importante que permite ignorar o descartar archivos que no sean necesarios llamado _.gitignore_, un ejemplo de su contenido puede ser:
+```bash
+  # Ignora archivos objeto
+  *.o
+  # Ignora archivos objeto de los headers
+  *.gch
+  # Ignora archivos con extensión log
+  *.log
+  # Y así puede ser llenado hasta el final sin ningún problema
+```
+
+## Trabajando colaborativamente por ramas (Branch)
+
+## Añadiendo nuestro trabajo a Github
+Finalmente para los casos en el que ya hemos trabajo y queremos trabajar colaborativamente podemos realizar un _push_ el cual nos permitirá resguardar nuestro avance en la plataforma de Github de modo en que nuestro equipo de trabajo puede trabajar sin ningún problema, por ello solo es necesario escribir:
+```bash
+  # Caso en el que trabajaremos constantemente
+  git push
+  # Para el caso en que se realice el push por primera vez
+  git push --set-upstream origin master
+```
