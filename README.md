@@ -124,5 +124,17 @@ Finalmente para los casos en el que ya hemos trabajo y queremos trabajar colabor
   git push --set-upstream origin master
 ```
 
+## Obtener el último cambio realizado de un repositorio
+Ahora bien no todo es realizar _git add_ y _git push_ también hay que tomar en cuenta que se trabajamos colaborativamente y la rama _master_ es actualizada generalmente estaremos desactualizados por 1 o n commits adelante por ello existe el siguiente comando:
+```bash
+  # Caso en el que no se realizaron cambios por nosotros y solo deseamos
+  #   obtener el último cambio
+  git pull
+  # Caso en el que realizamos cambios y solo deseamos reescribir
+  git stash
+  git pull
+```
+
+
 ## Conclusiones
 Si bien hay muchos más comandos los cuales nos ayudan a trabajar con Git y Github el poder realizar varias otras tareas ya dependerá de cuanta documentación o que otras funcionalidades desees aprender, mientras que por otro lado el saber trabajar con ramas de trabajo y el como fusionarlas es de las taras más difíciles que las personas no entienden, entonces a este paso ya vas a la mitad o por encima de la mitad de la curva de aprendizaje de _git_, por otro lado en los _status_ podremos encontrar el como añadir de forma automática todos los archivos o en su defecto como quitar un archivo especifico del registro de nuestro commit.
